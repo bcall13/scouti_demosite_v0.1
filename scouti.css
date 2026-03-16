@@ -3,8 +3,7 @@
    Athletic × Data-Driven — Blue on White
    ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-/* ── TOKENS ── */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');/* ── TOKENS ── */
 :root {
   /* Blues — primary palette */
   --blue-deep:    #060f1e;        /* near-black navy — hero backgrounds */
@@ -40,7 +39,7 @@
   --red-dim:      rgba(230,57,70,0.08);
 
   /* Typography scale */
-  --font-display: 'Bungee', sans-serif;
+  --font-display: 'Outfit', sans-serif;
   --font-body:    'Inter', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
