@@ -3,7 +3,9 @@
    Athletic × Data-Driven — Blue on White
    ═══════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');/* ── TOKENS ── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── TOKENS ── */
 :root {
   /* Blues — primary palette */
   --blue-deep:    #060f1e;        /* near-black navy — hero backgrounds */
@@ -39,7 +41,7 @@
   --red-dim:      rgba(230,57,70,0.08);
 
   /* Typography scale */
-  --font-display: 'Outfit', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-body:    'Inter', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
@@ -87,7 +89,7 @@ nav.scrolled {
 /* Logo */
 .logo {
   font-family: var(--font-display); font-weight: 800;
-  font-size: 21px; letter-spacing: -0.8px;
+  font-size: 21px; letter-spacing: -0.3px;
   color: var(--text); text-decoration: none;
   display: flex; align-items: center; gap: 1px;
   transition: opacity 0.2s;
@@ -196,21 +198,159 @@ nav.scrolled {
   font-weight: 500;
 }
 
+/* ── HERO EYEBROW ── */
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--blue-light); margin-bottom: 22px;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp 0.6s 0.2s ease forwards;
+}
+
+/* ── HARDWARE BADGES ── */
+.hw-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.hw-label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(148,163,184,0.4); display: flex; align-items: center;
+}
+.hw-badge {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(148,163,184,0.55);
+  border: 1px solid rgba(29,110,245,0.18);
+  padding: 4px 11px; border-radius: 20px;
+  background: rgba(29,110,245,0.06);
+}
+
+/* ── VIDEO CHROME ── */
+.chrome-title {
+  margin-left: 10px; font-family: var(--font-mono);
+  font-size: 10px; color: rgba(148,163,184,0.45);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+.vp-label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(29,110,245,0.45); position: relative; z-index: 1;
+}
+
+/* ── STATS STRIP ── */
+.ss-val {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 26px; color: var(--white); letter-spacing: -0.3px;
+}
+.ss-lbl { font-size: 11px; color: var(--grey); margin-top: 3px; }
+
+/* ── PROBLEM STRIP QUOTE ── */
+.ps-quote {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(22px, 2.5vw, 32px); line-height: 1.25;
+  color: var(--blue-deep); letter-spacing: -0.3px;
+}
+.ps-quote .red { color: var(--red); }
+
+/* ── HOW STEPS ── */
+.step-num {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 2px; color: var(--blue-bright);
+  text-transform: uppercase; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 8px;
+}
+.step-num-circle {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--blue-bright); color: white;
+  font-family: var(--font-display); font-weight: 700; font-size: 12px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 20px; color: var(--blue-deep); letter-spacing: -0.3px; margin-bottom: 10px;
+}
+.step-body { font-size: 14px; color: var(--grey-dark); line-height: 1.75; font-weight: 300; }
+
+/* ── PLATFORM CARDS ── */
+.plat-tag {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 20px;
+}
+.plat-tag.club-tag  { background: rgba(255,255,255,0.07); color: var(--grey); }
+.plat-tag.player-tag { background: rgba(29,110,245,0.2); color: var(--blue-light); }
+.plat-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 24px; color: var(--white); letter-spacing: -0.3px; margin-bottom: 12px;
+}
+.plat-body { font-size: 14px; color: rgba(148,163,184,0.7); line-height: 1.8; font-weight: 300; margin-bottom: 22px; }
+
+/* ── FEATURE TILES ── */
+.feat-tile-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 16px; color: var(--blue-deep); letter-spacing: -0.2px; margin-bottom: 8px;
+}
+.feat-tile-body { font-size: 13.5px; color: var(--grey-dark); line-height: 1.7; font-weight: 300; }
+
+/* ── CTA FORM ── */
+.cta-row input {
+  flex: 1; background: white; border: none; color: var(--text);
+  padding: 15px 18px; font-family: var(--font-body); font-size: 14px; outline: none;
+}
+.cta-row input::placeholder { color: var(--grey); }
+.cta-row button {
+  background: var(--blue-deep); color: white; border: none;
+  padding: 15px 22px; font-family: var(--font-body);
+  font-weight: 600; font-size: 13px; cursor: pointer;
+  white-space: nowrap; transition: background 0.2s;
+}
+.cta-row button:hover { background: #040d1a; }
+.cta-note { color: rgba(255,255,255,0.4); font-size: 12px; margin-top: 12px; }
+.form-ok {
+  display: none; color: rgba(255,255,255,0.9);
+  font-family: var(--font-mono); font-size: 13px;
+  letter-spacing: 1px; margin-top: 14px;
+}
+
+/* ── PAGE HERO (sub-pages) ── */
+.page-eyebrow {
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--blue-light); margin-bottom: 18px; display: block;
+  opacity: 0; animation: fadeUp 0.6s 0.2s ease forwards;
+}
+.page-h1 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(40px, 5.5vw, 72px); line-height: 1.04;
+  letter-spacing: -0.5px; color: var(--white);
+  opacity: 0; animation: fadeUp 0.7s 0.35s ease forwards;
+}
+.page-h1 .accent { color: var(--blue-light); }
+.page-sub {
+  margin-top: 18px; font-size: 17px; line-height: 1.75;
+  color: rgba(148,163,184,0.85); font-weight: 300;
+  opacity: 0; animation: fadeUp 0.7s 0.5s ease forwards;
+}
+
+/* ── FADE UP ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 /* ── TYPOGRAPHY ── */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -1.8px;
+  line-height: 1.06;
+  letter-spacing: -0.5px;
   color: var(--text);
 }
 h2 {
   font-size: clamp(32px, 4vw, 52px);
-  line-height: 1.07;
+  line-height: 1.08;
 }
 h3 {
   font-size: clamp(20px, 2vw, 26px);
-  letter-spacing: -0.8px;
+  letter-spacing: -0.3px;
 }
 
 /* ── SECTIONS ── */
@@ -290,7 +430,7 @@ h3 {
 /* ── STAT DISPLAY ── */
 .stat-val {
   font-family: var(--font-display); font-weight: 800;
-  line-height: 1; letter-spacing: -1.5px;
+  line-height: 1; letter-spacing: -0.5px;
 }
 .stat-lbl {
   font-family: var(--font-mono); font-size: 10px;
@@ -325,7 +465,7 @@ h3 {
 .mb-val {
   font-family: var(--font-display); font-weight: 800;
   font-size: 24px; line-height: 1;
-  color: var(--blue-bright);
+  color: var(--blue-bright); letter-spacing: -0.3px;
 }
 .mb-lbl {
   font-family: var(--font-mono); font-size: 8.5px;
