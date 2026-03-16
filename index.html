@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCOUTi — Football Intelligence Platform</title>
+<title>SCOUTi — The Intelligence Layer for Player Development</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -78,8 +78,6 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(10,22,40,0.08); }
   background: linear-gradient(165deg, var(--blue-deep) 0%, var(--blue-mid) 45%, #0d3060 100%);
   position: relative; overflow: hidden;
 }
-
-/* Subtle grid */
 #hero::before {
   content: '';
   position: absolute; inset: 0;
@@ -88,7 +86,6 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(10,22,40,0.08); }
     linear-gradient(90deg, rgba(59,130,246,0.07) 1px, transparent 1px);
   background-size: 56px 56px;
 }
-/* Radial glow */
 #hero::after {
   content: '';
   position: absolute;
@@ -108,9 +105,9 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(10,22,40,0.08); }
 
 h1 {
   font-family: 'Syne', sans-serif; font-weight: 800;
-  font-size: clamp(48px, 7vw, 96px); line-height: 1.02;
+  font-size: clamp(44px, 6.5vw, 88px); line-height: 1.02;
   letter-spacing: -2px; color: var(--white);
-  max-width: 820px; margin: 0 auto;
+  max-width: 860px; margin: 0 auto;
   position: relative; z-index: 1;
   opacity: 0; animation: fadeUp 0.7s 0.35s ease forwards;
 }
@@ -118,15 +115,36 @@ h1 .accent { color: var(--blue-light); }
 
 .hero-sub {
   margin-top: 24px; font-size: 17px; line-height: 1.75;
-  color: rgba(148,163,184,0.9); max-width: 500px; font-weight: 300;
+  color: rgba(148,163,184,0.9); max-width: 540px; font-weight: 300;
   position: relative; z-index: 1;
   opacity: 0; animation: fadeUp 0.7s 0.5s ease forwards;
 }
 
-.hero-btns {
-  margin-top: 40px; display: flex; gap: 14px; justify-content: center;
+/* Hardware badge */
+.hardware-badges {
+  margin-top: 18px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
   position: relative; z-index: 1;
-  opacity: 0; animation: fadeUp 0.6s 0.65s ease forwards;
+  opacity: 0; animation: fadeUp 0.6s 0.6s ease forwards;
+}
+.hw-badge {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(148,163,184,0.6);
+  border: 1px solid rgba(59,130,246,0.2);
+  padding: 5px 12px; border-radius: 20px;
+  background: rgba(37,99,235,0.07);
+}
+.hw-badge-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: rgba(148,163,184,0.4);
+  margin-right: 4px;
+}
+
+.hero-btns {
+  margin-top: 36px; display: flex; gap: 14px; justify-content: center;
+  position: relative; z-index: 1;
+  opacity: 0; animation: fadeUp 0.6s 0.7s ease forwards;
 }
 .btn-blue {
   background: var(--blue-bright); color: var(--white);
@@ -147,8 +165,8 @@ h1 .accent { color: var(--blue-light); }
 /* ── VIDEO SECTION ── */
 .video-wrap {
   position: relative; z-index: 2;
-  margin-top: 64px; width: 100%; max-width: 900px;
-  opacity: 0; animation: fadeUp 0.8s 0.8s ease forwards;
+  margin-top: 60px; width: 100%; max-width: 900px;
+  opacity: 0; animation: fadeUp 0.8s 0.85s ease forwards;
 }
 .video-frame {
   background: var(--blue-deep);
@@ -160,7 +178,6 @@ h1 .accent { color: var(--blue-light); }
   position: relative;
   display: flex; align-items: center; justify-content: center;
 }
-/* Placeholder until real video is dropped in */
 .video-placeholder {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, #0a1628 0%, #0f2548 50%, #0a1e40 100%);
@@ -172,7 +189,6 @@ h1 .accent { color: var(--blue-light); }
   font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
   color: rgba(59,130,246,0.5);
 }
-/* Pitch lines inside video placeholder */
 .vp-pitch {
   position: absolute; inset: 0; opacity: 0.06;
   background-image:
@@ -198,14 +214,10 @@ h1 .accent { color: var(--blue-light); }
   70%  { box-shadow: 0 0 0 22px rgba(37,99,235,0); }
   100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
 }
-
-/* Actual video tag (hidden until user adds src) */
 #demoVideo {
   width: 100%; height: 100%; object-fit: cover;
   position: absolute; inset: 0; display: none;
 }
-
-/* Video chrome bar */
 .video-chrome {
   position: absolute; top: 0; left: 0; right: 0;
   height: 36px; background: rgba(10,22,40,0.85);
@@ -215,7 +227,7 @@ h1 .accent { color: var(--blue-light); }
 
 .hero-stats-strip {
   margin-top: 20px; display: flex; justify-content: center; gap: 48px;
-  opacity: 0; animation: fadeUp 0.6s 1s ease forwards;
+  opacity: 0; animation: fadeUp 0.6s 1.05s ease forwards;
 }
 .hs { text-align: center; }
 .hs-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 28px; color: var(--white); }
@@ -241,22 +253,83 @@ h2 {
 }
 .section-sub { font-size: 16px; color: var(--grey-dark); line-height: 1.75; font-weight: 300; max-width: 500px; margin-top: 14px; }
 
+/* ── DATA VOID SECTION ── */
+#problem {
+  background: var(--blue-deep);
+  padding: 80px 56px;
+  position: relative; overflow: hidden;
+}
+#problem::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.problem-inner {
+  max-width: 1160px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.problem-headline {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(32px, 4vw, 52px); line-height: 1.08;
+  letter-spacing: -1.5px; color: var(--white);
+  margin-bottom: 16px;
+}
+.problem-headline .accent { color: var(--blue-light); }
+.problem-intro {
+  font-size: 17px; color: rgba(148,163,184,0.8); line-height: 1.75;
+  font-weight: 300; max-width: 600px; margin-bottom: 52px;
+}
+.problem-cards {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; overflow: hidden;
+}
+.prob-card {
+  background: var(--blue-deep); padding: 36px 32px;
+  transition: background 0.2s;
+  position: relative;
+}
+.prob-card:hover { background: rgba(15,37,72,0.8); }
+.prob-num {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 2px; color: var(--blue-light); text-transform: uppercase;
+  margin-bottom: 14px; display: block;
+}
+.prob-title {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 19px; color: var(--white); margin-bottom: 12px; letter-spacing: -0.3px;
+}
+.prob-desc {
+  font-size: 13.5px; color: rgba(148,163,184,0.65); line-height: 1.75; font-weight: 300;
+}
+.prob-quote {
+  margin-top: 16px; padding: 12px 16px;
+  background: rgba(37,99,235,0.1); border-left: 2px solid var(--blue-bright);
+  border-radius: 0 6px 6px 0;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: rgba(148,163,184,0.7); line-height: 1.6; letter-spacing: 0.3px;
+}
+
 /* ── WORKFLOW ── */
 #workflow { background: var(--off-white); }
 
 .workflow-header { text-align: center; margin-bottom: 72px; }
 .workflow-header h2 { margin: 0 auto; }
-.workflow-header .section-sub { margin: 14px auto 0; }
+.workflow-header .section-sub { margin: 14px auto 0; max-width: 560px; }
 
 .workflow-chain {
   display: flex; align-items: stretch;
   gap: 0; position: relative;
-  max-width: 1060px; margin: 0 auto;
+  max-width: 1100px; margin: 0 auto;
 }
 
 .wf-step {
   flex: 1; display: flex; flex-direction: column; align-items: center;
-  text-align: center; padding: 40px 28px 36px;
+  text-align: center; padding: 36px 22px 32px;
   background: var(--white); border: 1px solid var(--grey-light);
   border-radius: 16px;
   position: relative; z-index: 1;
@@ -268,11 +341,19 @@ h2 {
   box-shadow: 0 12px 40px rgba(37,99,235,0.1);
   transform: translateY(-4px);
 }
+/* Step 4 — discovery — subtle accent */
+.wf-step.step-discovery {
+  border-color: rgba(37,99,235,0.25);
+  background: linear-gradient(160deg, #fff 60%, #eff6ff 100%);
+}
+.wf-step.step-discovery:hover {
+  border-color: var(--blue-bright);
+  box-shadow: 0 12px 40px rgba(37,99,235,0.15);
+}
 
-/* Arrow connector */
 .wf-arrow {
   display: flex; align-items: center; justify-content: center;
-  width: 52px; flex-shrink: 0; position: relative; z-index: 0;
+  width: 40px; flex-shrink: 0; position: relative; z-index: 0;
 }
 .wf-arrow-line {
   width: 100%; height: 2px;
@@ -287,15 +368,15 @@ h2 {
   border-bottom: 6px solid transparent;
 }
 
-/* Step icon */
 .wf-icon {
-  width: 64px; height: 64px; border-radius: 16px;
+  width: 60px; height: 60px; border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: 22px; position: relative;
+  margin-bottom: 18px; position: relative;
 }
-.wf-step:nth-child(1) .wf-icon { background: #eff6ff; }
+.wf-step:nth-child(1) .wf-icon { background: #f0fdf4; }
 .wf-step:nth-child(3) .wf-icon { background: #eef2ff; }
-.wf-step:nth-child(5) .wf-icon { background: #f0fdf4; }
+.wf-step:nth-child(5) .wf-icon { background: #eff6ff; }
+.wf-step:nth-child(7) .wf-icon { background: #eff6ff; }
 
 .wf-num {
   position: absolute; top: -8px; right: -8px;
@@ -304,16 +385,47 @@ h2 {
   font-family: 'Syne', sans-serif; font-weight: 700;
   font-size: 11px; display: flex; align-items: center; justify-content: center;
 }
+.step-discovery .wf-num { background: var(--blue-bright); }
 
 .wf-title {
   font-family: 'Syne', sans-serif; font-weight: 700;
-  font-size: 17px; color: var(--blue-deep); margin-bottom: 10px; letter-spacing: -0.3px;
+  font-size: 15px; color: var(--blue-deep); margin-bottom: 8px; letter-spacing: -0.3px;
 }
-.wf-desc { font-size: 13.5px; color: var(--grey-dark); line-height: 1.65; font-weight: 300; }
+.wf-desc { font-size: 12.5px; color: var(--grey-dark); line-height: 1.65; font-weight: 300; }
+
+/* Discovery badge on step 4 */
+.discovery-badge {
+  margin-top: 12px; display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.2);
+  padding: 4px 10px; border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue-bright);
+}
 
 /* ── PLATFORM DEMO ── */
 #platform { background: var(--white); }
-.platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; }
+
+/* Intangibles callout */
+.intangibles-callout {
+  margin-top: 48px; margin-bottom: 48px;
+  padding: 28px 36px;
+  background: var(--blue-deep);
+  border-radius: 14px;
+  border-left: 3px solid var(--blue-bright);
+  display: flex; align-items: flex-start; gap: 24px;
+}
+.ic-label {
+  font-family: 'JetBrains Mono', monospace; font-size: 9px;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--blue-light); margin-bottom: 8px; display: block;
+  white-space: nowrap;
+}
+.ic-text {
+  font-size: 15px; color: rgba(148,163,184,0.85); line-height: 1.75; font-weight: 300;
+}
+.ic-text strong { color: var(--white); font-weight: 500; }
+
+.platform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
 
 .demo-card {
   border: 1px solid var(--grey-light); border-radius: 16px;
@@ -340,10 +452,8 @@ h2 {
 
 .demo-card-body { padding: 24px; background: var(--off-white); min-height: 240px; }
 
-/* Mini pitch */
 .mini-pitch svg { width: 100%; display: block; }
 
-/* Stat bars */
 .stat-bars { display: flex; flex-direction: column; gap: 16px; }
 .sbar-row { display: flex; align-items: center; gap: 14px; }
 .sbar-label { font-size: 12px; color: var(--grey-dark); width: 90px; flex-shrink: 0; font-weight: 500; }
@@ -351,7 +461,6 @@ h2 {
 .sbar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--blue-light), var(--blue-bright)); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
 .sbar-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--blue-bright); font-weight: 500; width: 36px; text-align: right; }
 
-/* Player profile mini */
 .player-profile { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
 .pp-avatar {
   width: 48px; height: 48px; border-radius: 12px;
@@ -364,7 +473,6 @@ h2 {
 .pp-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; color: var(--blue-deep); letter-spacing: -0.3px; }
 .pp-role { font-size: 11px; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
-/* SCOUTi metric boxes */
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -396,7 +504,6 @@ h2 {
 }
 .metric-box:hover::before { transform: scaleX(1); }
 
-/* Colour tiers by score range */
 .metric-box.tier-high .mb-val  { color: #2563eb; }
 .metric-box.tier-high::before  { background: linear-gradient(90deg, #60a5fa, #2563eb); }
 .metric-box.tier-mid .mb-val   { color: #0891b2; }
@@ -414,6 +521,20 @@ h2 {
   text-transform: uppercase; letter-spacing: 0.8px;
   margin-top: 5px; line-height: 1.3;
   font-weight: 500;
+}
+
+/* Profile recruiting note */
+.profile-recruiting-note {
+  margin-top: 14px; padding: 10px 14px;
+  background: rgba(37,99,235,0.05);
+  border: 1px solid rgba(37,99,235,0.15);
+  border-radius: 8px;
+  font-size: 11.5px; color: var(--blue); line-height: 1.6;
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.prn-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue-bright); flex-shrink: 0; margin-top: 4px;
 }
 
 /* ── FEATURES ── */
@@ -434,6 +555,14 @@ h2 {
 .feat-desc { font-size: 13.5px; color: rgba(148,163,184,0.7); line-height: 1.7; font-weight: 300; }
 .feat-num { position: absolute; bottom: 12px; right: 18px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 60px; color: rgba(37,99,235,0.06); line-height: 1; }
 
+/* Highlight feature card (Verified Recruiting Profiles) */
+.feat.feat-highlight {
+  background: rgba(37,99,235,0.08);
+  border-top: 2px solid rgba(37,99,235,0.4);
+}
+.feat.feat-highlight:hover { background: rgba(37,99,235,0.14); }
+.feat-highlight .feat-title { color: var(--blue-light); }
+
 /* ── CTA ── */
 #contact {
   background: linear-gradient(135deg, var(--blue-bright) 0%, var(--blue) 100%);
@@ -447,7 +576,7 @@ h2 {
   background-size: 50px 50px;
 }
 #contact h2 { color: var(--white); margin-bottom: 12px; font-size: clamp(36px, 4vw, 54px); }
-#contact p { color: rgba(255,255,255,0.75); font-size: 17px; max-width: 460px; margin: 0 auto 44px; line-height: 1.7; font-weight: 300; position: relative; z-index: 1; }
+#contact p { color: rgba(255,255,255,0.75); font-size: 17px; max-width: 480px; margin: 0 auto 44px; line-height: 1.7; font-weight: 300; position: relative; z-index: 1; }
 .contact-row { display: flex; gap: 0; max-width: 460px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,0.25); position: relative; z-index: 1; }
 .contact-row input {
   flex: 1; background: white; border: none; color: var(--text);
@@ -488,12 +617,16 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
   .nav-links a:not(.nav-cta) { display: none; }
   .section { padding: 70px 24px; }
   #hero { padding: 100px 24px 60px; }
+  #problem { padding: 60px 24px; }
   .workflow-chain { flex-direction: column; max-width: 420px; }
   .wf-arrow { transform: rotate(90deg); width: 32px; height: 40px; }
   .platform-grid { grid-template-columns: 1fr; }
   .features-grid { grid-template-columns: 1fr; }
+  .problem-cards { grid-template-columns: 1fr; }
   .hero-stats-strip { gap: 28px; }
+  .intangibles-callout { flex-direction: column; gap: 12px; }
   footer { flex-direction: column; text-align: center; }
+  .hardware-badges { gap: 6px; }
 }
 </style>
 </head>
@@ -503,6 +636,7 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
 <nav id="mainNav">
   <a href="#" class="logo">SCOUT<span class="logo-i">i</span><span class="logo-dot"></span></a>
   <div class="nav-links">
+    <a href="#problem">The Problem</a>
     <a href="#workflow">How It Works</a>
     <a href="#platform">Platform</a>
     <a href="#features">Features</a>
@@ -510,28 +644,40 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
 <section id="hero">
-  <p class="hero-eyebrow">Football Intelligence Platform</p>
-  <h1>See Every Player.<br><span class="accent">Know Every Edge.</span></h1>
-  <p class="hero-sub">SCOUTi turns match footage into elite-level player intelligence — built for the clubs and investors shaping the future of football.</p>
+  <p class="hero-eyebrow">AI-Powered Player Development & Discovery</p>
+
+  <h1>You Already Have<br>the Camera.<br><span class="accent">We Give It a Brain.</span></h1>
+
+  <p class="hero-sub">SCOUTi is the intelligence layer that turns your existing match footage into objective player development data — automatically. No analyst. No extra hardware. No 12-hour review sessions.</p>
+
+  <!-- Works with your existing hardware -->
+  <div class="hardware-badges">
+    <span class="hw-badge-label">Works with</span>
+    <span class="hw-badge">Veo</span>
+    <span class="hw-badge">Trace</span>
+    <span class="hw-badge">GoPro</span>
+    <span class="hw-badge">Smartphone</span>
+    <span class="hw-badge">Any Camera</span>
+  </div>
+
   <div class="hero-btns">
-    <a href="#contact" class="btn-blue">Request Access</a>
-    <a href="#workflow" class="btn-outline">See How It Works ↓</a>
+    <a href="#contact" class="btn-blue">Request Demo</a>
+    <a href="#problem" class="btn-outline">See Why It Matters ↓</a>
   </div>
 
   <!-- VIDEO -->
   <div class="video-wrap">
     <div class="video-frame">
-      <!-- Chrome bar -->
       <div class="video-chrome">
         <div class="chrome-dot" style="background:#ff5f57"></div>
         <div class="chrome-dot" style="background:#febc2e"></div>
         <div class="chrome-dot" style="background:#28c840"></div>
         <span style="margin-left:12px;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(148,163,184,0.5);letter-spacing:1.5px;text-transform:uppercase;">SCOUTi Platform Demo</span>
       </div>
-
-      <!-- Placeholder (swap out for real video) -->
       <div class="video-placeholder" id="videoPlaceholder">
         <div class="vp-pitch"></div>
         <div class="play-btn" id="playBtn" onclick="playVideo()">
@@ -541,8 +687,6 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
         </div>
         <p class="vp-label">Demo video coming soon</p>
       </div>
-
-      <!-- Drop your video src here -->
       <video id="demoVideo" controls>
         <source src="YOUR_VIDEO.mp4" type="video/mp4">
       </video>
@@ -550,20 +694,59 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
   </div>
 
   <div class="hero-stats-strip">
-    <div class="hs"><div class="hs-val">340+</div><div class="hs-lbl">Data Points / Match</div></div>
+    <div class="hs"><div class="hs-val">340+</div><div class="hs-lbl">Metrics Per Player, Per Match</div></div>
+    <div class="hs"><div class="hs-val">89 min</div><div class="hs-lbl">Off-Ball Intelligence Tracked</div></div>
     <div class="hs"><div class="hs-val">98%</div><div class="hs-lbl">Tracking Accuracy</div></div>
-    <div class="hs"><div class="hs-val">12K+</div><div class="hs-lbl">Matches Analysed</div></div>
-    <div class="hs"><div class="hs-val">Live</div><div class="hs-lbl">Real-Time Insights</div></div>
+    <div class="hs"><div class="hs-val">Verified</div><div class="hs-lbl">Not Self-Reported</div></div>
   </div>
 </section>
 
-<!-- WORKFLOW -->
+<!-- ═══════════════════════════════════════
+     THE PROBLEM — DATA VOID
+════════════════════════════════════════ -->
+<section id="problem">
+  <div class="problem-inner reveal">
+    <span class="eyebrow" style="color:var(--blue-light)">// The Reality Most Clubs Are Living</span>
+    <h2 class="problem-headline">18 Players.<br>90 Minutes.<br><span class="accent">One Pair of Eyes.</span></h2>
+    <p class="problem-intro">Your coaching staff is doing everything right — filming every match, investing in development, showing up for every session. But without an intelligence layer, that footage is just storage.</p>
+
+    <div class="problem-cards">
+      <!-- Card 1 -->
+      <div class="prob-card">
+        <span class="prob-num">01 — The Data Void</span>
+        <div class="prob-title">Drowning in Video, Starving for Intelligence</div>
+        <p class="prob-desc">Coaches are forced to evaluate 18 players simultaneously using only human memory. The result is generic, subjective feedback that neither develops players nor satisfies the parents paying $3,000 a year expecting more.</p>
+        <div class="prob-quote">"You need to work harder." — Every coach who doesn't have the data to say something better.</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="prob-card">
+        <span class="prob-num">02 — Hardware Fatigue</span>
+        <div class="prob-title">You Bought the Camera. You Didn't Buy the Analyst.</div>
+        <p class="prob-desc">Most clubs have already spent $1,000–$3,000 on Veo, Trace, or comparable hardware. They have hours of continuous footage. What they don't have is the staff, the budget, or the 12 hours required to manually analyze it.</p>
+        <div class="prob-quote">The camera records the game. SCOUTi understands it.</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="prob-card">
+        <span class="prob-num">03 — The Parent Pressure</span>
+        <div class="prob-title">Parents Treat Club Soccer as a College Investment</div>
+        <p class="prob-desc">Families investing in youth development want objective proof their child is improving — and increasingly, they want that proof to translate to recruiting visibility. Right now, the DoC has no data to give them either.</p>
+        <div class="prob-quote">SCOUTi gives you the evidence. And then it puts it in front of the right people.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     WORKFLOW — HOW IT WORKS
+════════════════════════════════════════ -->
 <section id="workflow" class="section">
   <div class="section-inner">
     <div class="workflow-header reveal">
       <span class="eyebrow">// How It Works</span>
-      <h2>Three Steps.<br>Total Clarity.</h2>
-      <p class="section-sub">SCOUTi's pipeline is designed to be frictionless — so your staff focuses on decisions, not data prep.</p>
+      <h2>One Platform.<br>Two Outcomes.</h2>
+      <p class="section-sub">The data your coaches need to develop players is the exact same data that gets players recruited. You don't change how you work — you just get far more out of it.</p>
     </div>
 
     <div class="workflow-chain">
@@ -571,19 +754,15 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
       <div class="wf-step reveal">
         <div class="wf-icon">
           <div class="wf-num">1</div>
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Upload icon -->
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
             <rect width="32" height="32" rx="8" fill="transparent"/>
-            <path d="M16 20V10" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
-            <path d="M11 15l5-5 5 5" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="6" y="22" width="20" height="3" rx="1.5" fill="#93c5fd" opacity="0.5"/>
-            <!-- Film strip deco -->
-            <rect x="4" y="4" width="4" height="4" rx="1" stroke="#bfdbfe" stroke-width="1.2" fill="none" opacity="0.6"/>
-            <rect x="24" y="24" width="4" height="4" rx="1" stroke="#bfdbfe" stroke-width="1.2" fill="none" opacity="0.6"/>
+            <rect x="6" y="8" width="20" height="16" rx="3" stroke="#16a34a" stroke-width="1.8" fill="none"/>
+            <circle cx="16" cy="16" r="3.5" stroke="#16a34a" stroke-width="1.6" fill="none"/>
+            <circle cx="24" cy="10" r="1.5" fill="#16a34a" opacity="0.7"/>
           </svg>
         </div>
-        <div class="wf-title">Upload Match Footage</div>
-        <p class="wf-desc">Drag and drop any match video — broadcast, drone, or tactical camera. SCOUTi handles any format.</p>
+        <div class="wf-title">Film Your Match</div>
+        <p class="wf-desc">Veo, Trace, GoPro, drone, or smartphone — SCOUTi works with whatever camera you already own. No new hardware. No vendor lock-in.</p>
       </div>
 
       <div class="wf-arrow reveal reveal-delay-1">
@@ -594,20 +773,18 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
       <div class="wf-step reveal reveal-delay-1">
         <div class="wf-icon">
           <div class="wf-num">2</div>
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Brain/AI icon -->
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
             <circle cx="16" cy="16" r="10" stroke="#4f46e5" stroke-width="1.5" fill="none"/>
             <circle cx="16" cy="16" r="5" stroke="#818cf8" stroke-width="1.5" fill="none"/>
             <circle cx="16" cy="16" r="2" fill="#4f46e5"/>
-            <!-- Rays -->
             <line x1="16" y1="4" x2="16" y2="7" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round"/>
             <line x1="16" y1="25" x2="16" y2="28" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round"/>
             <line x1="4" y1="16" x2="7" y2="16" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round"/>
             <line x1="25" y1="16" x2="28" y2="16" stroke="#818cf8" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <div class="wf-title">SCOUTi Analyses</div>
-        <p class="wf-desc">Our AI engine tracks every player, every touch, and every off-ball run — generating 340+ metrics automatically.</p>
+        <div class="wf-title">We Analyze the 90 Minutes</div>
+        <p class="wf-desc">Every player tracked, every off-ball run measured. Not just events — the 89 minutes without the ball. Spacing, pressing, defensive rotations, pitch control.</p>
       </div>
 
       <div class="wf-arrow reveal reveal-delay-2">
@@ -618,27 +795,63 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
       <div class="wf-step reveal reveal-delay-2">
         <div class="wf-icon">
           <div class="wf-num">3</div>
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Chart / growth icon -->
-            <polyline points="4,24 10,16 16,20 22,10 28,6" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <polyline points="22,6 28,6 28,12" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <line x1="4" y1="28" x2="28" y2="28" stroke="#bbf7d0" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+            <polyline points="4,24 10,16 16,20 22,10 28,6" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <polyline points="22,6 28,6 28,12" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line x1="4" y1="28" x2="28" y2="28" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
           </svg>
         </div>
-        <div class="wf-title">Develop Smarter</div>
-        <p class="wf-desc">Receive instant dashboards, scout reports, and benchmarking insights your coaching staff can act on today.</p>
+        <div class="wf-title">Your Coaches Get Clarity</div>
+        <p class="wf-desc">Individual development profiles, session-over-session progression, and specific tactical feedback — not "work harder" but exactly where, when, and why.</p>
+      </div>
+
+      <div class="wf-arrow reveal reveal-delay-3">
+        <div class="wf-arrow-line"></div>
+      </div>
+
+      <!-- Step 4 — Discovery consequence -->
+      <div class="wf-step step-discovery reveal reveal-delay-3">
+        <div class="wf-icon">
+          <div class="wf-num">4</div>
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="12" r="5" stroke="#2563eb" stroke-width="1.8" fill="none"/>
+            <path d="M6 26c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <circle cx="26" cy="10" r="2.5" fill="#93c5fd" opacity="0.8"/>
+            <line x1="28.5" y1="12.5" x2="31" y2="15" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="wf-title">Players Become Discoverable</div>
+        <p class="wf-desc">The same verified metrics your coaches use become the profile college scouts search for. Objective and AI-generated — not a self-edited highlight reel.</p>
+        <span class="discovery-badge">
+          <span style="width:5px;height:5px;border-radius:50%;background:var(--blue-bright);display:inline-block"></span>
+          Recruiting visibility unlocked
+        </span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PLATFORM DEMO -->
+<!-- ═══════════════════════════════════════
+     PLATFORM DEMO
+════════════════════════════════════════ -->
 <section id="platform" class="section" style="background:var(--off-white)">
   <div class="section-inner">
     <div class="reveal">
       <span class="eyebrow">// Platform Preview</span>
       <h2>The Analytics Suite</h2>
-      <p class="section-sub">A live look at what your analysts and scouts will work with every day.</p>
+      <p class="section-sub">What your coaching staff and players will work with every session — and every recruiting cycle.</p>
+    </div>
+
+    <!-- Intangibles callout -->
+    <div class="intangibles-callout reveal">
+      <div style="flex-shrink:0">
+        <span class="ic-label">What sets SCOUTi apart</span>
+      </div>
+      <p class="ic-text">
+        Most platforms are <strong>digital scorekeepers</strong> — they count events. Shots. Passes. Touches.
+        SCOUTi measures the game <strong>between</strong> the events: the spacing before the press, the defensive shape before the goal, the off-ball positioning that wins or loses matches before the ball ever arrives.
+        That's the <strong>89 minutes</strong> other tools ignore.
+      </p>
     </div>
 
     <div class="platform-grid">
@@ -651,13 +864,11 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
         <div class="demo-card-body mini-pitch">
           <svg viewBox="0 0 440 290" xmlns="http://www.w3.org/2000/svg">
             <rect width="440" height="290" fill="#e8f4e8" rx="6"/>
-            <!-- Stripes -->
             <rect x="0"   width="44" height="290" fill="rgba(255,255,255,0.3)"/>
             <rect x="88"  width="44" height="290" fill="rgba(255,255,255,0.3)"/>
             <rect x="176" width="44" height="290" fill="rgba(255,255,255,0.3)"/>
             <rect x="264" width="44" height="290" fill="rgba(255,255,255,0.3)"/>
             <rect x="352" width="44" height="290" fill="rgba(255,255,255,0.3)"/>
-            <!-- Lines -->
             <g stroke="rgba(255,255,255,0.8)" stroke-width="1.2" fill="none">
               <rect x="12" y="12" width="416" height="266" rx="2"/>
               <line x1="220" y1="12" x2="220" y2="278"/>
@@ -668,7 +879,6 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
               <rect x="12" y="116" width="28" height="58"/>
               <rect x="400" y="116" width="28" height="58"/>
             </g>
-            <!-- Players home -->
             <g fill="#1a4fa3" stroke="white" stroke-width="1.2">
               <circle cx="36" cy="145" r="8"/>
               <circle cx="90" cy="90" r="8"/>
@@ -682,14 +892,12 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
               <circle cx="320" cy="145" r="8"/>
               <circle cx="310" cy="175" r="8"/>
             </g>
-            <!-- Players away -->
             <g fill="#94a3b8" stroke="white" stroke-width="1.2" opacity="0.7">
               <circle cx="404" cy="145" r="8"/>
               <circle cx="350" cy="95" r="7"/>
               <circle cx="350" cy="145" r="7"/>
               <circle cx="350" cy="195" r="7"/>
             </g>
-            <!-- Selected player ring -->
             <circle cx="240" cy="100" r="16" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>
           </svg>
         </div>
@@ -698,20 +906,18 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
       <!-- Player profile card -->
       <div class="demo-card reveal reveal-delay-1">
         <div class="demo-card-header">
-          <span class="demo-card-title">Player Analysis</span>
+          <span class="demo-card-title">Player Development Profile</span>
           <span class="live-chip"><span class="live-dot"></span>SCOUTi Score</span>
         </div>
         <div class="demo-card-body">
-          <!-- Player identity row -->
           <div class="player-profile">
-            <div class="pp-avatar">KDB</div>
+            <div class="pp-avatar">JS</div>
             <div class="pp-info">
               <div class="pp-name">Jason Sporaci</div>
               <div class="pp-role">Central Midfielder · #17</div>
             </div>
           </div>
 
-          <!-- SCOUTi metric boxes — 8 proprietary metrics — 4×2 grid -->
           <div class="metric-grid">
             <div class="metric-box tier-high">
               <div class="mb-val">91</div>
@@ -739,12 +945,18 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
             </div>
             <div class="metric-box tier-high">
               <div class="mb-val">92</div>
-              <div class="mb-lbl">Positional Footprint</div>
+              <div class="mb-lbl">Pitch Control</div>
             </div>
             <div class="metric-box tier-high">
               <div class="mb-val">85</div>
               <div class="mb-lbl">Adaptability</div>
             </div>
+          </div>
+
+          <!-- Bridge to recruiting -->
+          <div class="profile-recruiting-note">
+            <div class="prn-dot"></div>
+            <span>These are the metrics college scouts search for — AI-verified, not self-reported. This profile is what recruiting visibility looks like.</span>
           </div>
         </div>
       </div>
@@ -772,11 +984,9 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
               <line x1="220" y1="10" x2="220" y2="210"/>
               <circle cx="220" cy="110" r="36"/>
             </g>
-            <!-- Intensity label -->
             <text x="20" y="205" fill="rgba(37,99,235,0.6)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">LOW</text>
             <text x="196" y="205" fill="rgba(37,99,235,0.7)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">MED</text>
             <text x="390" y="205" fill="rgba(37,99,235,0.5)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="1">LOW</text>
-            <!-- Gradient bar -->
             <defs><linearGradient id="lgbar" x1="0" x2="1" y1="0" y2="0"><stop offset="0%" stop-color="#bfdbfe"/><stop offset="50%" stop-color="#2563eb"/><stop offset="100%" stop-color="#bfdbfe"/></linearGradient></defs>
             <rect x="140" y="198" width="160" height="5" rx="2.5" fill="url(#lgbar)" opacity="0.7"/>
           </svg>
@@ -797,46 +1007,63 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- ═══════════════════════════════════════
+     FEATURES
+════════════════════════════════════════ -->
 <section id="features" class="section">
   <div class="section-inner">
     <div class="reveal">
-      <span class="eyebrow">// What We Build</span>
-      <h2>The Full Picture</h2>
-      <p class="section-sub" style="color:rgba(148,163,184,0.8)">Every tool your analysts need — in one unified platform.</p>
+      <span class="eyebrow">// What You Get</span>
+      <h2>Your Assistant Analyst.<br>Always On.</h2>
+      <p class="section-sub" style="color:rgba(148,163,184,0.8)">Every capability your coaching staff needs — without hiring a full analytics department.</p>
     </div>
     <div class="features-grid reveal">
+
+      <!-- 01 — Works with your camera FIRST -->
       <div class="feat">
         <span class="feat-icon">
-          <!-- Pulse / live signal — Real-Time Tracking -->
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="3" y="7" width="18" height="14" rx="2.5" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+            <path d="M21 11l4-2.5v9L21 15" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="12" cy="14" r="2.5" stroke="#3b82f6" stroke-width="1.5" fill="none"/>
+          </svg>
+        </span>
+        <div class="feat-title">Works With Your Camera</div>
+        <p class="feat-desc">Hardware-agnostic from day one. Veo, Trace, GoPro, drone, or smartphone — no new equipment, no upfront cost, no vendor lock-in. You already have what you need.</p>
+        <div class="feat-num">01</div>
+      </div>
+
+      <!-- 02 — Full-match tracking -->
+      <div class="feat">
+        <span class="feat-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <polyline points="2,14 7,14 9,7 12,21 15,10 18,17 20,14 26,14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
         </span>
-        <div class="feat-title">Match Tracking</div>
-        <p class="feat-desc">Match positional data synced to every touch, run, and off-ball movement across 90 minutes.</p>
-        <div class="feat-num">01</div>
-      </div>
-      <div class="feat">
-        <span class="feat-icon">
-          <!-- Simulation feature -->
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="14" cy="14" r="10" stroke="#3b82f6" stroke-width="1.8"/>
-            <circle cx="14" cy="14" r="4" stroke="#3b82f6" stroke-width="1.8"/>
-            <line x1="14" y1="2" x2="14" y2="6"  stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="14" y1="22" x2="14" y2="26" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="2"  y1="14" x2="6"  y2="14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="22" y1="14" x2="26" y2="14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <div class="feat-title">Tactical Simulation</div>
-        <p class="feat-desc">Run any scenario before matchday — swap formations, adjust pressing lines, or change personnel, and SCOUTi models how the game unfolds.</p>
+        <div class="feat-title">Full-Match Player Tracking</div>
+        <p class="feat-desc">Every player, every minute — not just when they have the ball. The 89 minutes of off-ball movement, spacing, and positioning that determine outcomes before the touch happens.</p>
         <div class="feat-num">02</div>
       </div>
+
+      <!-- 03 — Individual development -->
       <div class="feat">
         <span class="feat-icon">
-          <!-- Grid zones — Pressure Heatmaps -->
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <rect x="3"  y="16" width="5" height="10" rx="1" fill="#3b82f6" opacity="0.5"/>
+            <rect x="11" y="10" width="5" height="16" rx="1" fill="#3b82f6" opacity="0.75"/>
+            <rect x="19" y="4"  width="5" height="22" rx="1" fill="#3b82f6" opacity="1"/>
+            <line x1="2" y1="26" x2="26" y2="26" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+        </span>
+        <div class="feat-title">Individual Development Profiles</div>
+        <p class="feat-desc">Session-over-session progression per player. Specific, objective, and actionable — the data parents keep asking for, and the proof that your development program works.</p>
+        <div class="feat-num">03</div>
+      </div>
+
+      <!-- 04 — Heatmaps -->
+      <div class="feat">
+        <span class="feat-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <rect x="2"  y="2"  width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.9"/>
             <rect x="11" y="2"  width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.55"/>
             <rect x="20" y="2"  width="6" height="7" rx="1.5" fill="#3b82f6" opacity="0.25"/>
@@ -848,70 +1075,60 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
             <rect x="20" y="20" width="6" height="6" rx="1.5" fill="#3b82f6" opacity="0.05"/>
           </svg>
         </span>
-        <div class="feat-title">Pressure Heatmaps</div>
-        <p class="feat-desc">Visualise where your team wins and loses the pressing battle — by zone, by minute.</p>
-        <div class="feat-num">03</div>
-      </div>
-      <div class="feat">
-        <span class="feat-icon">
-          <!-- Nodes / network — Pattern Recognition -->
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="14" cy="5"  r="2.5" stroke="#3b82f6" stroke-width="1.8"/>
-            <circle cx="5"  cy="20" r="2.5" stroke="#3b82f6" stroke-width="1.8"/>
-            <circle cx="23" cy="20" r="2.5" stroke="#3b82f6" stroke-width="1.8"/>
-            <circle cx="14" cy="14" r="2"   fill="#3b82f6" opacity="0.5"/>
-            <line x1="14" y1="7.5"  x2="14" y2="12"  stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/>
-            <line x1="12" y1="15.2" x2="7"  y2="18"  stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/>
-            <line x1="16" y1="15.2" x2="21" y2="18"  stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <div class="feat-title">Pattern Recognition</div>
-        <p class="feat-desc">ML-powered detection of build-up patterns, defensive shapes, and transition triggers.</p>
+        <div class="feat-title">Pressure Heatmaps & Tactical Intelligence</div>
+        <p class="feat-desc">Visualize exactly where your team wins and loses the pressing battle — by zone, by phase, by minute. Give your coaching staff the tactical detail to make changes that matter.</p>
         <div class="feat-num">04</div>
       </div>
-      <div class="feat">
+
+      <!-- 05 — Verified Recruiting Profiles — highlighted -->
+      <div class="feat feat-highlight">
         <span class="feat-icon">
-          <!-- Bar chart — Player Benchmarking -->
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3"  y="16" width="5" height="10" rx="1" fill="#3b82f6" opacity="0.5"/>
-            <rect x="11" y="10" width="5" height="16" rx="1" fill="#3b82f6" opacity="0.75"/>
-            <rect x="19" y="4"  width="5" height="22" rx="1" fill="#3b82f6" opacity="1"/>
-            <line x1="2" y1="26" x2="26" y2="26" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="12" cy="10" r="4.5" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+            <path d="M3 24c0-4.97 4.03-9 9-9" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <circle cx="21" cy="18" r="2.5" stroke="#60a5fa" stroke-width="1.5" fill="none"/>
+            <line x1="23.5" y1="20.5" x2="26" y2="23" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+            <polyline points="17,18 19,20 24,15" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
         </span>
-        <div class="feat-title">Player Benchmarking</div>
-        <p class="feat-desc">Compare any player across 150+ metrics against league, positional, and historical benchmarks.</p>
+        <div class="feat-title">Verified Recruiting Profiles</div>
+        <p class="feat-desc">Your development data doesn't stay internal. Each player's metrics become a verified, discoverable profile — the objective alternative to a self-edited highlight reel, visible to college scouts actively searching.</p>
         <div class="feat-num">05</div>
       </div>
+
+      <!-- 06 — Tactical simulation -->
       <div class="feat">
         <span class="feat-icon">
-          <!-- Document lines — Scout Reports -->
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="5" y="2" width="18" height="24" rx="2" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
-            <line x1="9" y1="8"  x2="19" y2="8"  stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
-            <line x1="9" y1="13" x2="19" y2="13" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
-            <line x1="9" y1="18" x2="15" y2="18" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" opacity="0.35"/>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="10" stroke="#3b82f6" stroke-width="1.8"/>
+            <circle cx="14" cy="14" r="4" stroke="#3b82f6" stroke-width="1.8"/>
+            <line x1="14" y1="2" x2="14" y2="6"  stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="14" y1="22" x2="14" y2="26" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="2"  y1="14" x2="6"  y2="14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="22" y1="14" x2="26" y2="14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
         </span>
-        <div class="feat-title">Scout Reports</div>
-        <p class="feat-desc">Auto-generated reports tailored for coaches, directors, and board-level stakeholders.</p>
+        <div class="feat-title">Tactical Simulation</div>
+        <p class="feat-desc">Model formations, pressing lines, and personnel changes before matchday. The strategic war-room tool for coaching staffs who think one game ahead.</p>
         <div class="feat-num">06</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ═══════════════════════════════════════
+     CTA
+════════════════════════════════════════ -->
 <section id="contact">
   <div style="position:relative;z-index:1">
-    <span class="eyebrow" style="color:rgba(255,255,255,0.6)">// Work With Us</span>
-    <h2>Ready to See More?</h2>
-    <p>Whether you're a club looking for an edge or an investor backing the future of football intelligence — let's talk.</p>
+    <span class="eyebrow" style="color:rgba(255,255,255,0.6)">// Ready to See It In Action</span>
+    <h2>Your Players Are Developing.<br>Make Sure the Right People See It.</h2>
+    <p>Book a demo and see how SCOUTi turns your existing footage into the intelligence layer your club has been missing — and the recruiting visibility your players deserve.</p>
     <div class="contact-row">
       <input type="email" id="emailInput" placeholder="your@club.com"/>
       <button onclick="submitForm()">Request Demo</button>
     </div>
-    <p class="cta-note">No spam. Just a conversation.</p>
+    <p class="cta-note">No spam. Just a conversation with people who understand the game.</p>
     <p class="form-ok" id="formOk">✓ Received — we'll be in touch shortly.</p>
   </div>
 </section>
@@ -957,7 +1174,6 @@ function playVideo() {
     vid.style.display = 'block';
     vid.play();
   }
-  // If no real src yet, placeholder stays visible
 }
 
 // Timeline chart
@@ -981,7 +1197,6 @@ function drawTimeline() {
   const midY = H / 2 + 4;
   const xScale = x => pad.l + (x / 90) * (W - pad.l - pad.r);
 
-  // Minute gridlines
   [0,15,30,45,60,75,90].forEach(m => {
     const x = xScale(m);
     ctx.beginPath();
@@ -994,13 +1209,11 @@ function drawTimeline() {
     ctx.fillText(m + "'", x, H - 6);
   });
 
-  // Axis line
   ctx.beginPath();
   ctx.moveTo(pad.l, midY); ctx.lineTo(W - pad.r, midY);
   ctx.strokeStyle = 'rgba(37,99,235,0.2)'; ctx.lineWidth = 2;
   ctx.setLineDash([]); ctx.stroke();
 
-  // Team labels
   ctx.font = '9px JetBrains Mono, monospace';
   ctx.textAlign = 'left';
   ctx.fillStyle = '#3b82f6'; ctx.fillText('HOME', pad.l, midY - 38);
@@ -1016,20 +1229,17 @@ function drawTimeline() {
     const col = isGoal || isNow ? '#2563eb' : (isHome ? '#93c5fd' : '#cbd5e1');
     const r = isGoal ? 7 : isNow ? 8 : 5;
 
-    // Stem
     ctx.beginPath();
     ctx.moveTo(x, midY + (isHome ? -4 : 4));
     ctx.lineTo(x, y + (isHome ? r : -r));
     ctx.strokeStyle = col + '55'; ctx.lineWidth = 1.5; ctx.stroke();
 
-    // Dot
     ctx.beginPath();
     ctx.arc(x, y, r, 0, Math.PI * 2);
     ctx.fillStyle = isGoal || isNow ? col : 'white';
     ctx.strokeStyle = col; ctx.lineWidth = 1.5;
     ctx.fill(); ctx.stroke();
 
-    // Label
     ctx.fillStyle = isGoal || isNow ? '#1d4ed8' : '#94a3b8';
     ctx.font = '8.5px JetBrains Mono, monospace';
     ctx.textAlign = 'center';
