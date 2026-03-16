@@ -352,21 +352,69 @@ h2 {
 .sbar-val { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--blue-bright); font-weight: 500; width: 36px; text-align: right; }
 
 /* Player profile mini */
-.player-profile { display: flex; gap: 20px; align-items: flex-start; }
+.player-profile { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
 .pp-avatar {
-  width: 52px; height: 52px; border-radius: 12px;
+  width: 48px; height: 48px; border-radius: 12px;
   background: linear-gradient(135deg, var(--blue-mid), var(--blue));
   display: flex; align-items: center; justify-content: center;
-  color: white; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px;
+  color: white; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px;
   flex-shrink: 0;
 }
 .pp-info { flex: 1; }
-.pp-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; color: var(--blue-deep); letter-spacing: -0.3px; }
-.pp-role { font-size: 12px; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; margin-top: 2px; }
-.pp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-.pp-metric { background: white; border: 1px solid var(--grey-light); border-radius: 10px; padding: 10px 12px; }
-.pp-m-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-bright); }
-.pp-m-lbl { font-size: 10px; color: var(--grey); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+.pp-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; color: var(--blue-deep); letter-spacing: -0.3px; }
+.pp-role { font-size: 11px; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+
+/* SCOUTi metric boxes */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.metric-box {
+  background: white;
+  border: 1px solid var(--grey-light);
+  border-radius: 10px;
+  padding: 11px 10px 10px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.metric-box:hover {
+  border-color: var(--blue-light);
+  box-shadow: 0 4px 16px rgba(37,99,235,0.1);
+  transform: translateY(-2px);
+}
+.metric-box::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--blue-light), var(--blue-bright));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.metric-box:hover::before { transform: scaleX(1); }
+
+/* Colour tiers by score range */
+.metric-box.tier-high .mb-val  { color: #2563eb; }
+.metric-box.tier-high::before  { background: linear-gradient(90deg, #60a5fa, #2563eb); }
+.metric-box.tier-mid .mb-val   { color: #0891b2; }
+.metric-box.tier-mid::before   { background: linear-gradient(90deg, #67e8f9, #0891b2); }
+.metric-box.tier-low .mb-val   { color: #94a3b8; }
+.metric-box.tier-low::before   { background: linear-gradient(90deg, #cbd5e1, #94a3b8); }
+
+.mb-val {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 26px; line-height: 1;
+  color: var(--blue-bright);
+}
+.mb-lbl {
+  font-size: 9px; color: var(--grey);
+  text-transform: uppercase; letter-spacing: 0.8px;
+  margin-top: 5px; line-height: 1.3;
+  font-weight: 500;
+}
 
 /* ── FEATURES ── */
 #features { background: var(--blue-deep); }
@@ -381,7 +429,7 @@ h2 {
   position: relative; overflow: hidden;
 }
 .feat:hover { background: var(--blue-mid); }
-.feat-icon { font-size: 26px; margin-bottom: 18px; display: block; }
+.feat-icon { display: block; margin-bottom: 18px; width: 28px; height: 28px; }
 .feat-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 17px; color: var(--white); margin-bottom: 10px; letter-spacing: -0.2px; }
 .feat-desc { font-size: 13.5px; color: rgba(148,163,184,0.7); line-height: 1.7; font-weight: 300; }
 .feat-num { position: absolute; bottom: 12px; right: 18px; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 60px; color: rgba(37,99,235,0.06); line-height: 1; }
@@ -651,48 +699,51 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
       <div class="demo-card reveal reveal-delay-1">
         <div class="demo-card-header">
           <span class="demo-card-title">Player Analysis</span>
-          <span class="live-chip"><span class="live-dot"></span>Match Data</span>
+          <span class="live-chip"><span class="live-dot"></span>SCOUTi Score</span>
         </div>
         <div class="demo-card-body">
+          <!-- Player identity row -->
           <div class="player-profile">
             <div class="pp-avatar">KDB</div>
             <div class="pp-info">
               <div class="pp-name">K. De Bruyne</div>
-              <div class="pp-role">Central Midfielder</div>
-              <div class="pp-grid">
-                <div class="pp-metric"><div class="pp-m-val">94%</div><div class="pp-m-lbl">Pass Acc.</div></div>
-                <div class="pp-metric"><div class="pp-m-val">9.1</div><div class="pp-m-lbl">Rating</div></div>
-                <div class="pp-metric"><div class="pp-m-val">3</div><div class="pp-m-lbl">Key Pass</div></div>
-              </div>
+              <div class="pp-role">Central Midfielder · #17</div>
             </div>
           </div>
-          <div style="margin-top:20px">
-            <div class="stat-bars">
-              <div class="sbar-row">
-                <span class="sbar-label">Passing</span>
-                <div class="sbar-track"><div class="sbar-fill" style="width:94%"></div></div>
-                <span class="sbar-val">94</span>
-              </div>
-              <div class="sbar-row">
-                <span class="sbar-label">Vision</span>
-                <div class="sbar-track"><div class="sbar-fill" style="width:96%"></div></div>
-                <span class="sbar-val">96</span>
-              </div>
-              <div class="sbar-row">
-                <span class="sbar-label">Pressing</span>
-                <div class="sbar-track"><div class="sbar-fill" style="width:72%"></div></div>
-                <span class="sbar-val">72</span>
-              </div>
-              <div class="sbar-row">
-                <span class="sbar-label">Dribbling</span>
-                <div class="sbar-track"><div class="sbar-fill" style="width:80%"></div></div>
-                <span class="sbar-val">80</span>
-              </div>
-              <div class="sbar-row">
-                <span class="sbar-label">Shooting</span>
-                <div class="sbar-track"><div class="sbar-fill" style="width:68%"></div></div>
-                <span class="sbar-val">68</span>
-              </div>
+
+          <!-- SCOUTi metric boxes — 8 proprietary metrics — 4×2 grid -->
+          <div class="metric-grid">
+            <div class="metric-box tier-high">
+              <div class="mb-val">91</div>
+              <div class="mb-lbl">Off Ball IQ</div>
+            </div>
+            <div class="metric-box tier-high">
+              <div class="mb-val">88</div>
+              <div class="mb-lbl">Composure</div>
+            </div>
+            <div class="metric-box tier-mid">
+              <div class="mb-val">79</div>
+              <div class="mb-lbl">Work Rate</div>
+            </div>
+            <div class="metric-box tier-high">
+              <div class="mb-val">94</div>
+              <div class="mb-lbl">Leadership</div>
+            </div>
+            <div class="metric-box tier-mid">
+              <div class="mb-val">83</div>
+              <div class="mb-lbl">Discipline</div>
+            </div>
+            <div class="metric-box tier-high">
+              <div class="mb-val">87</div>
+              <div class="mb-lbl">Avg Space</div>
+            </div>
+            <div class="metric-box tier-high">
+              <div class="mb-val">92</div>
+              <div class="mb-lbl">Positional Footprint</div>
+            </div>
+            <div class="metric-box tier-high">
+              <div class="mb-val">85</div>
+              <div class="mb-lbl">Adaptability</div>
             </div>
           </div>
         </div>
@@ -755,12 +806,97 @@ footer p { font-size: 12px; color: rgba(148,163,184,0.5); }
       <p class="section-sub" style="color:rgba(148,163,184,0.8)">Every tool your analysts need — in one unified platform.</p>
     </div>
     <div class="features-grid reveal">
-      <div class="feat"><span class="feat-icon">⚡</span><div class="feat-title">Real-Time Tracking</div><p class="feat-desc">Live positional data synced to every touch, run, and off-ball movement across 90 minutes.</p><div class="feat-num">01</div></div>
-      <div class="feat"><span class="feat-icon">🎯</span><div class="feat-title">xG & Shot Quality</div><p class="feat-desc">Granular expected goals models that account for body angle, pressure, and historical context.</p><div class="feat-num">02</div></div>
-      <div class="feat"><span class="feat-icon">🔥</span><div class="feat-title">Pressure Heatmaps</div><p class="feat-desc">Visualise where your team wins and loses the pressing battle — by zone, by minute.</p><div class="feat-num">03</div></div>
-      <div class="feat"><span class="feat-icon">🧠</span><div class="feat-title">Pattern Recognition</div><p class="feat-desc">ML-powered detection of build-up patterns, defensive shapes, and transition triggers.</p><div class="feat-num">04</div></div>
-      <div class="feat"><span class="feat-icon">📊</span><div class="feat-title">Player Benchmarking</div><p class="feat-desc">Compare any player across 150+ metrics against league, positional, and historical benchmarks.</p><div class="feat-num">05</div></div>
-      <div class="feat"><span class="feat-icon">📋</span><div class="feat-title">Scout Reports</div><p class="feat-desc">Auto-generated reports tailored for coaches, directors, and board-level stakeholders.</p><div class="feat-num">06</div></div>
+      <div class="feat">
+        <span class="feat-icon">
+          <!-- Pulse / live signal — Real-Time Tracking -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="2,14 7,14 9,7 12,21 15,10 18,17 20,14 26,14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </span>
+        <div class="feat-title">Real-Time Tracking</div>
+        <p class="feat-desc">Live positional data synced to every touch, run, and off-ball movement across 90 minutes.</p>
+        <div class="feat-num">01</div>
+      </div>
+      <div class="feat">
+        <span class="feat-icon">
+          <!-- Crosshair — xG & Shot Quality -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="14" r="10" stroke="#3b82f6" stroke-width="1.8"/>
+            <circle cx="14" cy="14" r="4" stroke="#3b82f6" stroke-width="1.8"/>
+            <line x1="14" y1="2" x2="14" y2="6"  stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="14" y1="22" x2="14" y2="26" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="2"  y1="14" x2="6"  y2="14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="22" y1="14" x2="26" y2="14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div class="feat-title">xG & Shot Quality</div>
+        <p class="feat-desc">Granular expected goals models that account for body angle, pressure, and historical context.</p>
+        <div class="feat-num">02</div>
+      </div>
+      <div class="feat">
+        <span class="feat-icon">
+          <!-- Grid zones — Pressure Heatmaps -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2"  y="2"  width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.9"/>
+            <rect x="11" y="2"  width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.55"/>
+            <rect x="20" y="2"  width="6" height="7" rx="1.5" fill="#3b82f6" opacity="0.25"/>
+            <rect x="2"  y="11" width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.6"/>
+            <rect x="11" y="11" width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.35"/>
+            <rect x="20" y="11" width="6" height="7" rx="1.5" fill="#3b82f6" opacity="0.15"/>
+            <rect x="2"  y="20" width="7" height="6" rx="1.5" fill="#3b82f6" opacity="0.2"/>
+            <rect x="11" y="20" width="7" height="6" rx="1.5" fill="#3b82f6" opacity="0.1"/>
+            <rect x="20" y="20" width="6" height="6" rx="1.5" fill="#3b82f6" opacity="0.05"/>
+          </svg>
+        </span>
+        <div class="feat-title">Pressure Heatmaps</div>
+        <p class="feat-desc">Visualise where your team wins and loses the pressing battle — by zone, by minute.</p>
+        <div class="feat-num">03</div>
+      </div>
+      <div class="feat">
+        <span class="feat-icon">
+          <!-- Nodes / network — Pattern Recognition -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="5"  r="2.5" stroke="#3b82f6" stroke-width="1.8"/>
+            <circle cx="5"  cy="20" r="2.5" stroke="#3b82f6" stroke-width="1.8"/>
+            <circle cx="23" cy="20" r="2.5" stroke="#3b82f6" stroke-width="1.8"/>
+            <circle cx="14" cy="14" r="2"   fill="#3b82f6" opacity="0.5"/>
+            <line x1="14" y1="7.5"  x2="14" y2="12"  stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="12" y1="15.2" x2="7"  y2="18"  stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="16" y1="15.2" x2="21" y2="18"  stroke="#3b82f6" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <div class="feat-title">Pattern Recognition</div>
+        <p class="feat-desc">ML-powered detection of build-up patterns, defensive shapes, and transition triggers.</p>
+        <div class="feat-num">04</div>
+      </div>
+      <div class="feat">
+        <span class="feat-icon">
+          <!-- Bar chart — Player Benchmarking -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3"  y="16" width="5" height="10" rx="1" fill="#3b82f6" opacity="0.5"/>
+            <rect x="11" y="10" width="5" height="16" rx="1" fill="#3b82f6" opacity="0.75"/>
+            <rect x="19" y="4"  width="5" height="22" rx="1" fill="#3b82f6" opacity="1"/>
+            <line x1="2" y1="26" x2="26" y2="26" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          </svg>
+        </span>
+        <div class="feat-title">Player Benchmarking</div>
+        <p class="feat-desc">Compare any player across 150+ metrics against league, positional, and historical benchmarks.</p>
+        <div class="feat-num">05</div>
+      </div>
+      <div class="feat">
+        <span class="feat-icon">
+          <!-- Document lines — Scout Reports -->
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="2" width="18" height="24" rx="2" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+            <line x1="9" y1="8"  x2="19" y2="8"  stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+            <line x1="9" y1="13" x2="19" y2="13" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
+            <line x1="9" y1="18" x2="15" y2="18" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round" opacity="0.35"/>
+          </svg>
+        </span>
+        <div class="feat-title">Scout Reports</div>
+        <p class="feat-desc">Auto-generated reports tailored for coaches, directors, and board-level stakeholders.</p>
+        <div class="feat-num">06</div>
+      </div>
     </div>
   </div>
 </section>
