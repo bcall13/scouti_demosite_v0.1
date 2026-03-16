@@ -8,15 +8,15 @@
 /* ── TOKENS ── */
 :root {
   /* Blues — primary palette */
-  --blue-deep:    #060f1e;        /* near-black navy — hero backgrounds */
-  --blue-night:   #0c1a30;        /* rich dark navy */
-  --blue-mid:     #0f2a4a;        /* mid navy — dark sections */
-  --blue:         #1549a0;        /* core brand blue */
-  --blue-bright:  #1d6ef5;        /* primary CTA — vivid, athletic */
-  --blue-light:   #4a90f5;        /* lighter accent */
-  --blue-electric:#5aa3ff;        /* highlight / glow accent */
-  --blue-pale:    #eef4ff;        /* tinted white for hover states */
-  --blue-tint:    #f0f6ff;        /* very light blue-white sections */
+  --blue-deep:    #0d1f3c;        /* lifted from near-black — still dark, more readable */
+--blue-night:   #152d4f;        /* warmer dark navy — less cave, more depth */
+--blue-mid:     #1a3d6b;        /* mid navy — noticeably lighter, content shows clearly */
+--blue:         #1e56b8;        /* core brand blue — slightly brighter */
+--blue-bright:  #2d7ef7;        /* primary CTA — unchanged energy, tiny lift */
+--blue-light:   #5a9ef7;        /* lighter accent — more visible on dark */
+--blue-electric:#6db3ff;        /* highlight / glow — softer, less harsh */
+--blue-pale:    #eef4ff;        /* unchanged — already light */
+--blue-tint:    #f0f6ff;        /* unchanged — already light */
 
   /* Neutrals — white base */
   --white:        #ffffff;
