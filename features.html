@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Features — SCOUTi</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scouti.css">
+<style>
+#page-hero { background:linear-gradient(165deg,var(--blue-deep) 0%,var(--blue-mid) 45%,#0d3060 100%); padding:148px 56px 96px; position:relative; overflow:hidden; }
+#page-hero::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(59,130,246,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.06) 1px,transparent 1px); background-size:56px 56px; }
+.ph-inner { max-width:1160px; margin:0 auto; position:relative; z-index:1; }
+.page-eyebrow { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--blue-light); margin-bottom:18px; display:block; opacity:0; animation:fadeUp 0.6s 0.2s ease forwards; }
+.page-h1 { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(40px,5.5vw,72px); line-height:1.04; letter-spacing:-2px; color:var(--white); max-width:740px; opacity:0; animation:fadeUp 0.7s 0.35s ease forwards; }
+.page-h1 .accent { color:var(--blue-light); }
+.page-sub { margin-top:18px; font-size:17px; line-height:1.75; color:rgba(148,163,184,0.85); max-width:560px; font-weight:300; opacity:0; animation:fadeUp 0.7s 0.5s ease forwards; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* 89 MIN CALLOUT */
+#eighty-nine { background:var(--white); padding:72px 56px; }
+.em-inner { max-width:1160px; margin:0 auto; }
+.em-callout { background:var(--blue-deep); border-radius:20px; padding:48px 56px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; position:relative; overflow:hidden; }
+.em-callout::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; background:radial-gradient(ellipse,rgba(37,99,235,0.15) 0%,transparent 70%); pointer-events:none; }
+.em-num { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(80px,10vw,140px); color:rgba(37,99,235,0.15); line-height:1; letter-spacing:-4px; position:relative; }
+.em-num span { position:absolute; bottom:0; left:0; font-size:18px; color:var(--blue-light); letter-spacing:2px; font-weight:700; font-family:'JetBrains Mono',monospace; text-transform:uppercase; }
+.em-copy h2 { color:var(--white); margin-bottom:14px; }
+.em-copy p { font-size:15px; color:rgba(148,163,184,0.8); line-height:1.8; font-weight:300; }
+
+/* FEATURES GRID */
+#feat-grid-section { background:var(--off-white); padding:96px 56px; }
+.fg-inner { max-width:1160px; margin:0 auto; }
+.fg-header { margin-bottom:56px; }
+.features-deep-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+.fd-card { background:var(--white); border:1px solid var(--grey-light); border-radius:16px; padding:36px 32px; transition:box-shadow 0.25s,border-color 0.25s,transform 0.25s; position:relative; overflow:hidden; }
+.fd-card:hover { box-shadow:0 16px 48px rgba(37,99,235,0.09); border-color:var(--border-mid); transform:translateY(-3px); }
+.fd-card.highlight { border-color:rgba(37,99,235,0.25); background:linear-gradient(160deg,white 70%,var(--blue-pale) 100%); }
+.fd-icon { margin-bottom:18px; }
+.fd-label { font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--blue-bright); margin-bottom:8px; display:block; }
+.fd-title { font-family:'Syne',sans-serif; font-weight:700; font-size:22px; color:var(--blue-deep); letter-spacing:-0.4px; margin-bottom:12px; }
+.fd-body { font-size:14px; color:var(--grey-dark); line-height:1.8; font-weight:300; }
+.fd-details { margin-top:20px; display:flex; flex-direction:column; gap:10px; }
+.fd-detail { display:flex; align-items:flex-start; gap:10px; font-size:13.5px; color:var(--grey-dark); line-height:1.6; }
+.fd-detail-dot { width:5px; height:5px; border-radius:50%; background:var(--blue-bright); flex-shrink:0; margin-top:6px; }
+.fd-bg-icon { position:absolute; bottom:-10px; right:-10px; opacity:0.03; }
+
+/* METRICS TABLE */
+#metrics { background:var(--white); padding:96px 56px; }
+.mt-inner { max-width:1160px; margin:0 auto; }
+.mt-header { text-align:center; margin-bottom:56px; }
+.metric-table { width:100%; border-collapse:collapse; border-radius:16px; overflow:hidden; border:1px solid var(--grey-light); }
+.metric-table thead tr { background:var(--blue-deep); }
+.metric-table th { padding:16px 24px; text-align:left; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:rgba(148,163,184,0.7); font-weight:400; }
+.metric-table tbody tr { border-bottom:1px solid var(--grey-light); transition:background 0.15s; }
+.metric-table tbody tr:hover { background:var(--off-white); }
+.metric-table tbody tr:last-child { border-bottom:none; }
+.metric-table td { padding:16px 24px; font-size:13.5px; color:var(--grey-dark); line-height:1.5; }
+.metric-table td:first-child { font-family:'Syne',sans-serif; font-weight:600; color:var(--blue-deep); font-size:14px; }
+.metric-badge { display:inline-flex; align-items:center; gap:4px; padding:3px 8px; border-radius:12px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; font-weight:400; }
+.mb-core { background:rgba(37,99,235,0.08); color:var(--blue); }
+.mb-new { background:rgba(16,185,129,0.08); color:#059669; }
+.mb-recruit { background:rgba(245,158,11,0.1); color:#d97706; }
+
+.cta-strip { background:linear-gradient(135deg,var(--blue-bright),var(--blue)); padding:80px 56px; text-align:center; position:relative; overflow:hidden; }
+.cta-strip::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.06) 1px,transparent 1px); background-size:50px 50px; }
+.cta-strip-inner { position:relative; z-index:1; max-width:560px; margin:0 auto; }
+.cta-strip h2 { color:var(--white); font-size:clamp(28px,3.5vw,44px); margin-bottom:10px; }
+.cta-strip p { color:rgba(255,255,255,0.72); font-size:15px; margin-bottom:28px; font-weight:300; line-height:1.75; }
+.cta-btns { display:flex; gap:12px; justify-content:center; }
+
+@media(max-width:900px){
+  #page-hero{padding:110px 24px 72px}
+  #eighty-nine,#feat-grid-section,#metrics{padding:64px 24px}
+  .em-callout{grid-template-columns:1fr;gap:24px;padding:32px 28px}
+  .features-deep-grid{grid-template-columns:1fr}
+  .metric-table td,.metric-table th{padding:12px 14px}
+  .cta-strip{padding:64px 24px}
+  .cta-btns{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="index.html" class="logo">SCOUT<span class="logo-i">i</span><span class="logo-dot"></span></a>
+  <div class="nav-links">
+    <a href="problem.html">The Problem</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="platform.html">Platform</a>
+    <a href="features.html" class="active">Features</a>
+    <a href="demo.html" class="nav-cta">Request Demo</a>
+  </div>
+</nav>
+
+<section id="page-hero">
+  <div class="ph-inner">
+    <span class="page-eyebrow">// Measure the Unmeasured</span>
+    <h1 class="page-h1">Quantify the <span class="accent">Intangibles.</span></h1>
+    <p class="page-sub">Move beyond basic box scores. SCOUTi tracks the 89 minutes a player doesn't have the ball — the behaviors that win or lose matches before the first touch.</p>
+  </div>
+</section>
+
+<section id="eighty-nine">
+  <div class="em-inner">
+    <div class="em-callout reveal">
+      <div class="em-num">89<span>min</span></div>
+      <div class="em-copy">
+        <h2>The Minutes That Matter Most</h2>
+        <p>A player has the ball for an average of 1–2 minutes per match. Everything else — the positioning, the pressing, the rotations, the spacing — happens in the other 89 minutes. Traditional platforms measure the 1 minute. SCOUTi is built around the 89.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="feat-grid-section">
+  <div class="fg-inner">
+    <div class="fg-header reveal">
+      <span class="eyebrow">// Core Capabilities</span>
+      <h2>Four Features.<br>One Intelligence Layer.</h2>
+      <p class="section-sub">Each SCOUTi capability is designed to turn a specific gap in traditional analysis into a measurable, actionable output.</p>
+    </div>
+    <div class="features-deep-grid">
+
+      <!-- Defensive Integrity -->
+      <div class="fd-card reveal">
+        <div class="fd-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none"><rect x="2" y="2" width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.9"/><rect x="11" y="2" width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.55"/><rect x="20" y="2" width="6" height="7" rx="1.5" fill="#3b82f6" opacity="0.25"/><rect x="2" y="11" width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.6"/><rect x="11" y="11" width="7" height="7" rx="1.5" fill="#3b82f6" opacity="0.35"/><rect x="20" y="11" width="6" height="7" rx="1.5" fill="#3b82f6" opacity="0.15"/><rect x="2" y="20" width="7" height="6" rx="1.5" fill="#3b82f6" opacity="0.2"/><rect x="11" y="20" width="7" height="6" rx="1.5" fill="#3b82f6" opacity="0.1"/><rect x="20" y="20" width="6" height="6" rx="1.5" fill="#3b82f6" opacity="0.04"/></svg></div>
+        <span class="fd-label">Feature 01</span>
+        <h3 class="fd-title">Defensive Integrity Tracking</h3>
+        <p class="fd-body">Automatically flag missed defensive rotations and measure backline spacing to ensure your team moves as a cohesive unit — not a collection of individuals reacting to the ball.</p>
+        <div class="fd-details">
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Backline compactness measured continuously throughout transitions and set phases</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Rotation adherence scored per player — who held shape and who broke it</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Timestamped breakdown events linked directly to match footage for instant review</div>
+        </div>
+      </div>
+
+      <!-- Off-Ball Support -->
+      <div class="fd-card reveal reveal-d1">
+        <div class="fd-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none"><polyline points="2,14 7,14 9,7 12,21 15,10 18,17 20,14 26,14" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <span class="fd-label">Feature 02</span>
+        <h3 class="fd-title">Off-Ball Support Metrics</h3>
+        <p class="fd-body">Measure the distance and angles of teammates during possession phases. Identify exactly who is creating passing lanes and who is leaving the ball carrier isolated — the visibility gap that costs goals.</p>
+        <div class="fd-details">
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Support angle quality scored per possession sequence across the full match</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Pass lane availability tracked — how many viable options each ball carrier had</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Player-level support scores normalized by position and tactical role</div>
+        </div>
+      </div>
+
+      <!-- Pitch Control -->
+      <div class="fd-card highlight reveal">
+        <div class="fd-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none"><rect x="3" y="16" width="5" height="10" rx="1" fill="#3b82f6" opacity="0.5"/><rect x="11" y="10" width="5" height="16" rx="1" fill="#3b82f6" opacity="0.75"/><rect x="19" y="4" width="5" height="22" rx="1" fill="#3b82f6"/><line x1="2" y1="26" x2="26" y2="26" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg></div>
+        <span class="fd-label">Feature 03 — Core Metric</span>
+        <h3 class="fd-title">Pitch Control & Work Rate</h3>
+        <p class="fd-body">Translate raw tracking data into standardized 1–100 player card metrics. Objectively grade a player's spatial footprint and effort — normalized by their specific position so comparisons across roles are always fair.</p>
+        <div class="fd-details">
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Pitch control score captures territorial dominance and positional occupation over time</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Work rate index measures distance covered, sprint frequency, and pressing intensity</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Position-normalized benchmarking — your CM is always compared to other CMs</div>
+        </div>
+      </div>
+
+      <!-- Prescriptive Next Steps -->
+      <div class="fd-card reveal reveal-d1">
+        <div class="fd-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none"><rect x="3" y="2" width="17" height="24" rx="2" stroke="#3b82f6" stroke-width="1.8" fill="none"/><line x1="7" y1="8" x2="16" y2="8" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/><line x1="7" y1="12" x2="16" y2="12" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" opacity="0.65"/><line x1="7" y1="16" x2="12" y2="16" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><polyline points="14,18 17,21 22,15" stroke="#3b82f6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <span class="fd-label">Feature 04</span>
+        <h3 class="fd-title">Prescriptive Next Steps</h3>
+        <p class="fd-body">Don't just stare at the stats — fix them. SCOUTi's intelligence layer translates game data into recommended drills and actionable coaching feedback designed to immediately improve player development at your next session.</p>
+        <div class="fd-details">
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Drill recommendations tied directly to flagged metrics — not generic suggestions</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Player-level action items generated per match — specific enough to run on Tuesday</div>
+          <div class="fd-detail"><div class="fd-detail-dot"></div>Week-over-week tracking confirms whether prescribed interventions are working</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS TABLE -->
+<section id="metrics">
+  <div class="mt-inner">
+    <div class="mt-header reveal">
+      <span class="eyebrow">// The SCOUTi Scorecard</span>
+      <h2>8 Proprietary Metrics</h2>
+      <p class="section-sub" style="margin:12px auto 0;text-align:center;max-width:500px">The complete set of intangible metrics SCOUTi generates for every player, every match. AI-verified. Not self-reported.</p>
+    </div>
+    <div class="reveal">
+      <table class="metric-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>What It Measures</th>
+            <th>Scale</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Off Ball IQ</td>
+            <td>Decision-making and movement quality without possession — support angles, runs, spacing</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-core">Core</span></td>
+          </tr>
+          <tr>
+            <td>Composure</td>
+            <td>Consistency under pressure — performance variance in high-intensity moments vs. open play</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-core">Core</span></td>
+          </tr>
+          <tr>
+            <td>Work Rate</td>
+            <td>Pressing intensity, sprint frequency, and sustained effort across the full 90 minutes</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-core">Core</span></td>
+          </tr>
+          <tr>
+            <td>Leadership</td>
+            <td>Organizational behavior — directing teammates, defensive coordination, communication proxies</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-new">Proprietary</span></td>
+          </tr>
+          <tr>
+            <td>Discipline</td>
+            <td>Positional adherence, foul tendency, and tactical obedience to the game plan</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-core">Core</span></td>
+          </tr>
+          <tr>
+            <td>Avg Space</td>
+            <td>Average distance maintained from nearest defenders and teammates — spatial intelligence</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-core">Core</span></td>
+          </tr>
+          <tr>
+            <td>Pitch Control</td>
+            <td>Territorial occupation and spatial dominance over time — positional footprint across the match</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-recruit">Recruiting</span></td>
+          </tr>
+          <tr>
+            <td>Adaptability</td>
+            <td>Performance consistency across different tactical formations, game states, and opponent styles</td>
+            <td>1–100</td>
+            <td><span class="metric-badge mb-new">Proprietary</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip">
+  <div class="cta-strip-inner reveal">
+    <span class="eyebrow" style="color:rgba(255,255,255,0.55)">// See It Applied</span>
+    <h2>See These Metrics On a Real Player.</h2>
+    <p>Book a demo and we'll walk you through a live player profile built from actual match footage.</p>
+    <div class="cta-btns">
+      <a href="demo.html" class="btn-primary">Request Demo</a>
+      <a href="platform.html" class="btn-ghost-light">Explore the Platform →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">SCOUT<span>i</span></div>
+  <div class="footer-links">
+    <a href="problem.html">The Problem</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="platform.html">Platform</a>
+    <a href="features.html">Features</a>
+    <a href="demo.html">Request Demo</a>
+  </div>
+  <p>© 2025 SCOUTi. All rights reserved.</p>
+</footer>
+<script>
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20));
+const obs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
