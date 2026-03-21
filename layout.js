@@ -5,6 +5,13 @@ Include this script at the bottom of every
 HTML file’s <body>, before closing </body>.
 ═══════════════════════════════════════ */
 
+/* ═══════════════════════════════════════
+SCOUTi layout.js
+Injects shared nav + footer into every page.
+Include this script at the bottom of every
+HTML file’s <body>, before closing </body>.
+═══════════════════════════════════════ */
+
 (function () {
 
 /* ── 1. INJECT NAV ── */
@@ -13,29 +20,19 @@ fetch(‘nav.html’)
 .then(html => {
 const wrapper = document.createElement(‘div’);
 wrapper.innerHTML = html.trim();
+const nav = wrapper.firstElementChild;
+document.body.insertBefore(nav, document.body.firstChild);
 
 ```
-  /* Insert all elements from nav.html (nav + drawer + backdrop) */
-  while (wrapper.firstChild) {
-    const el = wrapper.firstChild;
-    wrapper.removeChild(el);
-    if (el.nodeType === 1 || el.nodeType === 3) {
-      document.body.insertBefore(el, document.body.firstChild);
-    }
-  }
-
   /* Set active state based on current page */
   const current = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('#mainNav .nav-links a, #mobileDrawer a').forEach(link => {
-    if (link.getAttribute('href') === current) {
-      link.classList.add('active');
-    }
+  nav.querySelectorAll('.nav-links a').forEach(link => {
+    if (link.getAttribute('href') === current) link.classList.add('active');
   });
 
   /* Scroll shadow */
   window.addEventListener('scroll', () => {
-    const nav = document.getElementById('mainNav');
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 20);
+    nav.classList.toggle('scrolled', window.scrollY > 20);
   });
 })
 .catch(err => console.warn('SCOUTi: nav.html could not be loaded.', err));
