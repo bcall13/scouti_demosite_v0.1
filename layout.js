@@ -5,13 +5,6 @@ Include this script at the bottom of every
 HTML file’s <body>, before closing </body>.
 ═══════════════════════════════════════ */
 
-/* ═══════════════════════════════════════
-SCOUTi layout.js
-Injects shared nav + footer into every page.
-Include this script at the bottom of every
-HTML file’s <body>, before closing </body>.
-═══════════════════════════════════════ */
-
 (function () {
 
 /* ── 1. INJECT NAV ── */
@@ -63,35 +56,3 @@ document.querySelectorAll(’.reveal’).forEach(el => obs.observe(el));
 }, 100);
 
 })();
-
-/* ── MOBILE NAV TOGGLE ── */
-function toggleMobileNav() {
-const drawer   = document.getElementById(‘mobileDrawer’);
-const backdrop = document.getElementById(‘mobileBackdrop’);
-const burger   = document.getElementById(‘navBurger’);
-if (!drawer) return;
-const isOpen = drawer.classList.contains(‘open’);
-if (isOpen) {
-closeMobileNav();
-} else {
-drawer.classList.add(‘open’);
-backdrop.classList.add(‘open’);
-burger.classList.add(‘open’);
-burger.setAttribute(‘aria-label’, ‘Close menu’);
-document.body.style.overflow = ‘hidden’;
-}
-}
-
-function closeMobileNav() {
-const drawer   = document.getElementById(‘mobileDrawer’);
-const backdrop = document.getElementById(‘mobileBackdrop’);
-const burger   = document.getElementById(‘navBurger’);
-if (!drawer) return;
-drawer.classList.remove(‘open’);
-backdrop.classList.remove(‘open’);
-if (burger) {
-burger.classList.remove(‘open’);
-burger.setAttribute(‘aria-label’, ‘Open menu’);
-}
-document.body.style.overflow = ‘’;
-}
