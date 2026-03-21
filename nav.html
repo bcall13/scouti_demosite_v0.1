@@ -1,6 +1,10 @@
 <!-- SCOUTi Shared Nav — injected via layout.js -->
+
 <nav id="mainNav">
   <a href="index.html" class="logo">SCOUT<span class="logo-i">i</span></a>
+
+  <!-- Desktop links -->
+
   <div class="nav-links">
     <a href="problem.html">The Problem</a>
     <a href="how-it-works.html">How It Works</a>
@@ -8,4 +12,26 @@
     <a href="features.html">Features</a>
     <a href="demo.html" class="nav-cta">Request Demo</a>
   </div>
+
+  <!-- Hamburger button (mobile only) -->
+
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" onclick="toggleMobileNav()">
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+    <span class="burger-bar"></span>
+  </button>
 </nav>
+
+<!-- Mobile drawer -->
+
+<div class="mobile-drawer" id="mobileDrawer">
+  <a href="problem.html" onclick="closeMobileNav()">The Problem</a>
+  <a href="how-it-works.html" onclick="closeMobileNav()">How It Works</a>
+  <a href="platform.html" onclick="closeMobileNav()">Platform</a>
+  <a href="features.html" onclick="closeMobileNav()">Features</a>
+  <a href="demo.html" class="mobile-cta" onclick="closeMobileNav()">Request Demo</a>
+</div>
+
+<!-- Backdrop -->
+
+<div class="mobile-backdrop" id="mobileBackdrop" onclick="closeMobileNav()"></div>
